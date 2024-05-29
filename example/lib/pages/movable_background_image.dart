@@ -209,7 +209,7 @@ class _MoveableBackgroundImageExampleState
                               rotateScale: "Girar",
                             ),
                             paintEditor: const I18nPaintingEditor(
-                              arrow: "Avança",
+                              arrow: "Seta",
                               back: "Voltar",
                               circle: "Círculo",
                               done: "Feito",
@@ -236,10 +236,6 @@ class _MoveableBackgroundImageExampleState
                                 bottomNavigationBarText: "Add Imagem")),
                         stickerEditorConfigs: StickerEditorConfigs(
                           enabled: true,
-                          initWidth: (editorSize.aspectRatio > imgRatio
-                                  ? editorSize.height
-                                  : editorSize.width) /
-                              _initScale,
                           buildStickers: (setLayer) {
                             return ClipRRect(
                               borderRadius: const BorderRadius.vertical(

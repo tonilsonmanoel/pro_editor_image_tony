@@ -187,7 +187,7 @@ class TextLayerData extends Layer {
 
   /// A custom text style for the text. Be careful the editor allow not to import
   /// and export this style.
-  TextStyle fontStyle;
+  TextStyle? fontStyle;
 
   /// Creates a new text layer with customizable properties.
   ///
