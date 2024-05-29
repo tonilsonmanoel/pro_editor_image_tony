@@ -118,7 +118,7 @@ class _MoveableBackgroundImageExampleState
                       _transparentBytes,
                       key: editorKey,
                       onImageEditingComplete: (bytes) async {
-                        await editorKey.currentState
+                        File? document = await editorKey.currentState
                             ?.exportStateHistory(
                               // All configurations are optional
                               configs: const ExportEditorConfigs(
@@ -131,7 +131,15 @@ class _MoveableBackgroundImageExampleState
                                 historySpan: ExportHistorySpan.all,
                               ),
                             )
-                            .toFile();
+                            .toFile()
+                            .then(
+                          (value) {
+                            print("Salve Exportação ${value.path}");
+                          },
+                        );
+                        if (document != null) {
+                          print("Parh: ${document.path}");
+                        }
                         if (editedBytes != null) {
                           Navigator.push(
                             context,
