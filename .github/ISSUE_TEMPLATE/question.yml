@@ -1,0 +1,16 @@
+name: Question
+description: Please use the discuss tab to ask a question.
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+       Please use the [discuss](https://github.com/hm21/pro_image_editor/discussions) tab to ask a question.
+  - type: textarea
+    id: placeholder
+    attributes:
+      label: Placeholder
+      description: "Placeholder"
+    validations:
+      required: false

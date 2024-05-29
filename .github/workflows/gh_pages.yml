@@ -1,0 +1,36 @@
+name: GH-Pages
+on:
+  push:
+    branches:
+      - stable
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: master
+          flutter-version: 3.22.0
+      - name: Install Package Dependencies
+        run: flutter pub get
+      - name: Install Example Dependencies
+        run: flutter pub get
+        working-directory: ./example
+      - name: Build Web
+        run: flutter build web --release
+        working-directory: ./example
+      - name: Deploy
+        run: |
+          cd example/build/web
+          git init
+          git config user.name "hm21"
+          git config user.email "alex.frei@hotmail.ch"
+          git remote add secure-origin https://username:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Deployed Github Pages"
+          git push --force secure-origin gh-pages
