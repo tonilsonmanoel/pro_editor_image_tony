@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:example/pages/preview_img.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -116,8 +117,39 @@ class _MoveableBackgroundImageExampleState
                     child: ProImageEditor.memory(
                       _transparentBytes,
                       key: editorKey,
-                      onImageEditingComplete: onImageEditingComplete,
-                      onCloseEditor: onCloseEditor,
+                      onImageEditingComplete: (bytes) async {
+                        await editorKey.currentState
+                            ?.exportStateHistory(
+                              // All configurations are optional
+                              configs: const ExportEditorConfigs(
+                                exportPainting: true,
+                                exportText: true,
+                                exportCropRotate: false,
+                                exportFilter: true,
+                                exportEmoji: true,
+                                exportSticker: true,
+                                historySpan: ExportHistorySpan.all,
+                              ),
+                            )
+                            .toFile();
+                        if (editedBytes != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return PreviewImgPage(imgBytes: editedBytes!);
+                              },
+                            ),
+                          ).whenComplete(() {
+                            editedBytes = null;
+                          });
+                        }
+                      },
+                      onCloseEditor: () async {
+                        if (editedBytes == null) {
+                          Navigator.pop(context);
+                        }
+                      },
                       onUpdateUI: () {
                         if (!inited) {
                           inited = true;

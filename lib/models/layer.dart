@@ -223,13 +223,11 @@ class TextLayerData extends Layer {
       'text': text,
       'colorMode': LayerBackgroundColorModeE.values[colorMode?.index ?? 0].name,
       'color': color.value,
-      'style': fontStyle,
       'background': background.value,
       'colorPickerPosition': colorPickerPosition ?? 0,
       'align': align.name,
       'fontScale': fontScale,
       'type': 'text',
-      'fontFamily': fontStyle?.fontFamily
     };
   }
 }
