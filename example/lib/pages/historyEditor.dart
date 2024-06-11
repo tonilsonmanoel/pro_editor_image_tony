@@ -1,33 +1,27 @@
 import 'dart:io';
-import 'dart:math';
+import 'dart:typed_data';
 
-import 'package:example/pages/historyEditor.dart';
 import 'package:example/pages/preview_img.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pro_image_editor_tony/models/layer.dart';
 import 'package:pro_image_editor_tony/modules/paint_editor/utils/draw/draw_canvas.dart';
 import 'package:pro_image_editor_tony/pro_image_editor.dart';
-import 'package:image_picker/image_picker.dart';
 import 'dart:ui' as ui;
 
-import '../utils/example_helper.dart';
-
-class MoveableBackgroundImageExample extends StatefulWidget {
-  const MoveableBackgroundImageExample({super.key});
-
+class HistoryEditor extends StatefulWidget {
+  const HistoryEditor({super.key, required this.editorHistory});
+  final File editorHistory;
   @override
-  State<MoveableBackgroundImageExample> createState() =>
-      _MoveableBackgroundImageExampleState();
+  State<HistoryEditor> createState() => _HistoryEditorState();
 }
 
-class _MoveableBackgroundImageExampleState
-    extends State<MoveableBackgroundImageExample>
-    with ExampleHelperState<MoveableBackgroundImageExample> {
+class _HistoryEditorState extends State<HistoryEditor> {
   late Uint8List _transparentBytes;
   double _transparentAspectRatio = -1;
+  Uint8List? editedBytes;
 
   /// Better sense of scale when we start with a large number
   final double _initScale = 20;
@@ -83,9 +77,6 @@ class _MoveableBackgroundImageExampleState
     cameraXFile = photo;
   }
 
-  File? documentHistory;
-  Uint8List? editedBytes2;
-
   //Fim Build Stick
 
   @override
@@ -120,10 +111,9 @@ class _MoveableBackgroundImageExampleState
                     painter: PixelTransparentPainter(),
                     child: ProImageEditor.memory(
                       _transparentBytes,
-                      key: editorKey,
+                      key: _editor,
                       onImageEditingComplete: (bytes) async {
-                        editedBytes2 = bytes;
-                        documentHistory = await editorKey.currentState
+                        File? document = await _editor.currentState
                             ?.exportStateHistory(
                               // All configurations are optional
                               configs: const ExportEditorConfigs(
@@ -136,21 +126,30 @@ class _MoveableBackgroundImageExampleState
                                 historySpan: ExportHistorySpan.all,
                               ),
                             )
-                            .toFile();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return HistoryEditor(
-                                  editorHistory: documentHistory!);
-                            },
-                          ),
-                        ).whenComplete(() {
-                          editedBytes2 = null;
-                        });
+                            .toFile()
+                            .then(
+                          (value) {
+                            print("Salve Exportação ${value.path}");
+                          },
+                        );
+                        if (document != null) {
+                          print("Parh: ${document.path}");
+                        }
+                        if (editedBytes != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return PreviewImgPage(imgBytes: editedBytes!);
+                              },
+                            ),
+                          ).whenComplete(() {
+                            editedBytes = null;
+                          });
+                        }
                       },
                       onCloseEditor: () async {
-                        if (editedBytes2 == null) {
+                        if (editedBytes == null) {
                           Navigator.pop(context);
                         }
                       },
@@ -160,6 +159,11 @@ class _MoveableBackgroundImageExampleState
                         }
                       },
                       configs: ProImageEditorConfigs(
+                        initStateHistory: ImportStateHistory.fromJsonFile(
+                          widget.editorHistory,
+                          configs: ImportEditorConfigs(
+                              recalculateSizeAndPosition: true),
+                        ),
                         layerInteraction: LayerInteraction(
                           /// Choose between `auto`, `enabled` and `disabled`.
                           ///
@@ -480,9 +484,9 @@ class _MoveableBackgroundImageExampleState
                             context: context,
                             builder: (context) {
                               return ReorderLayerSheet(
-                                layers: editorKey.currentState!.activeLayers,
+                                layers: _editor.currentState!.activeLayers,
                                 onReorder: (oldIndex, newIndex) {
-                                  editorKey.currentState!.moveLayerListPosition(
+                                  _editor.currentState!.moveLayerListPosition(
                                     oldIndex: oldIndex,
                                     newIndex: newIndex,
                                   );

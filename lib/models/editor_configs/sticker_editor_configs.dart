@@ -54,4 +54,4 @@ class StickerEditorConfigs {
   });
 }
 
-typedef BuildStickers = Widget Function(Function(Widget) setLayer);
+typedef BuildStickers = Widget Function(Function(Widget) setLayerz);

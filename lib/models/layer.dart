@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/layer_widget.dart';
 import 'paint_editor/painted_model.dart';
@@ -59,6 +60,8 @@ class Layer {
 
     switch (map['type']) {
       case 'text':
+        String fontName = map['fontStyle'].toString().replaceAll(" ", "");
+
         return TextLayerData(
           flipX: layer.flipX,
           flipY: layer.flipY,
@@ -66,7 +69,7 @@ class Layer {
           rotation: layer.rotation,
           scale: layer.scale,
           text: map['text'] ?? '-',
-          fontStyle: map['style'],
+          fontStyle: GoogleFonts.getFont(fontName),
           colorMode: LayerBackgroundColorModeE.values
               .firstWhere((element) => element.name == map['colorMode']),
           color: Color(map['color']),
@@ -227,6 +230,7 @@ class TextLayerData extends Layer {
       'colorPickerPosition': colorPickerPosition ?? 0,
       'align': align.name,
       'fontScale': fontScale,
+      'fontStyle': fontStyle!.fontFamily!,
       'type': 'text',
     };
   }

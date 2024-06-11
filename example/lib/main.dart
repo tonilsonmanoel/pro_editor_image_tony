@@ -1,5 +1,6 @@
 import 'package:example/pages/selectable_layer_example.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'pages/custom_appbar_bottombar_example.dart';
 import 'pages/default_example.dart';
@@ -61,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildExamples() {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
