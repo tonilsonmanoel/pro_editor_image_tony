@@ -60,7 +60,14 @@ class Layer {
 
     switch (map['type']) {
       case 'text':
-        String fontName = map['fontStyle'].toString().replaceAll(" ", "");
+        TextStyle? fontStyle;
+        String fontName =
+            map['fontStyle'].toString().replaceAll(" ", "").toLowerCase();
+        if (fontName.startsWith("aclonica")) {
+          fontStyle = GoogleFonts.aclonica();
+        } else {
+          fontStyle = TextStyle();
+        }
 
         return TextLayerData(
           flipX: layer.flipX,
@@ -69,7 +76,7 @@ class Layer {
           rotation: layer.rotation,
           scale: layer.scale,
           text: map['text'] ?? '-',
-          fontStyle: GoogleFonts.getFont(fontName),
+          fontStyle: fontStyle,
           colorMode: LayerBackgroundColorModeE.values
               .firstWhere((element) => element.name == map['colorMode']),
           color: Color(map['color']),

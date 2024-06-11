@@ -263,7 +263,6 @@ class TextEditorState extends State<TextEditor>
               width: double.maxFinite,
               child: FontPicker(
                 showFontInfo: true,
-                showFontVariants: true,
                 recentsCount: 5,
                 lang: 'pt',
                 showInDialog: true,

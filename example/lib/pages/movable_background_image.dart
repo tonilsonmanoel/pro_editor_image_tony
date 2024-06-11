@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:example/pages/historyEditor.dart';
 import 'package:example/pages/preview_img.dart';
+import 'package:example/pages/statecurtom.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -136,23 +137,25 @@ class _MoveableBackgroundImageExampleState
                                 historySpan: ExportHistorySpan.all,
                               ),
                             )
-                            .toFile();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return HistoryEditor(
-                                  editorHistory: documentHistory!);
-                            },
-                          ),
-                        ).whenComplete(() {
-                          editedBytes2 = null;
-                        });
+                            .toFile()
+                            .then(
+                          (value) {
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return StateCurtom();
+                                },
+                              ),
+                            );
+                          },
+                        );
+
+                       
                       },
                       onCloseEditor: () async {
-                        if (editedBytes2 == null) {
-                          Navigator.pop(context);
-                        }
+                        if (editedBytes2 == null) {}
                       },
                       onUpdateUI: () {
                         if (!inited) {
