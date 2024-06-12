@@ -53,159 +53,147 @@ class Layer {
     TextStyle getTextStyleGoogle(String fontName) {
       TextStyle? fontStyle;
 
-      if (fontName.toLowerCase().replaceAll(' ', '') == "abrilfatface") {
+      if (fontName.startsWith("abrilfatface")) {
         fontStyle = GoogleFonts.abrilFatface();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "aclonica") {
+      } else if (fontName.startsWith("aclonica")) {
         fontStyle = GoogleFonts.aclonica();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "alegreyasans") {
+      } else if (fontName.startsWith("alegreyasans")) {
         fontStyle = GoogleFonts.alegreyaSans();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "architectsdaughter") {
+      } else if (fontName.startsWith("architectsdaughter")) {
         fontStyle = GoogleFonts.architectsDaughter();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "archivo") {
+      } else if (fontName.startsWith("archivo")) {
         fontStyle = GoogleFonts.archivo();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "archivonarrow") {
+      } else if (fontName.startsWith("archivonarrow")) {
         fontStyle = GoogleFonts.archivoNarrow();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "bebasneue") {
+      } else if (fontName.startsWith("bebasneue")) {
         fontStyle = GoogleFonts.bebasNeue();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "bitter") {
+      } else if (fontName.startsWith("bitter")) {
         fontStyle = GoogleFonts.bitter();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "breeserif") {
+      } else if (fontName.startsWith("breeserif")) {
         fontStyle = GoogleFonts.breeSerif();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "bungee") {
+      } else if (fontName.startsWith("bungee")) {
         fontStyle = GoogleFonts.bungee();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "cabin") {
+      } else if (fontName.startsWith("cabin")) {
         fontStyle = GoogleFonts.cabin();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "cairo") {
+      } else if (fontName.startsWith("cairo")) {
         fontStyle = GoogleFonts.cairo();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "coda") {
+      } else if (fontName.startsWith("coda")) {
         fontStyle = GoogleFonts.coda();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "comfortaa") {
+      } else if (fontName.startsWith("comfortaa")) {
         fontStyle = GoogleFonts.comfortaa();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "comicneue") {
+      } else if (fontName.startsWith("comicneue")) {
         fontStyle = GoogleFonts.comicNeue();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "cousine") {
+      } else if (fontName.startsWith("cousine")) {
         fontStyle = GoogleFonts.cousine();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "croissantone") {
+      } else if (fontName.startsWith("croissantone")) {
         fontStyle = GoogleFonts.croissantOne();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "fasterone") {
+      } else if (fontName.startsWith("fasterone")) {
         fontStyle = GoogleFonts.fasterOne();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "forum") {
+      } else if (fontName.startsWith("forum")) {
         fontStyle = GoogleFonts.forum();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "permanentmarker") {
+      } else if (fontName.startsWith("permanentmarker")) {
         fontStyle = GoogleFonts.permanentMarker();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "greatvibes") {
+      } else if (fontName.startsWith("greatvibes")) {
         fontStyle = GoogleFonts.greatVibes();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "heebo") {
+      } else if (fontName.startsWith("heebo")) {
         fontStyle = GoogleFonts.heebo();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "inconsolata") {
+      } else if (fontName.startsWith("inconsolata")) {
         fontStyle = GoogleFonts.inconsolata();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "josefinslab") {
+      } else if (fontName.startsWith("josefinslab")) {
         fontStyle = GoogleFonts.josefinSlab();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "lato") {
+      } else if (fontName.startsWith("lato")) {
         fontStyle = GoogleFonts.lato();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "librebaskerville") {
+      } else if (fontName.startsWith("librebaskerville")) {
         fontStyle = GoogleFonts.libreBaskerville();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "lobster") {
+      } else if (fontName.startsWith("lobster")) {
         fontStyle = GoogleFonts.lobster();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "lora") {
+      } else if (fontName.startsWith("lora")) {
         fontStyle = GoogleFonts.lora();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "merriweather") {
+      } else if (fontName.startsWith("merriweather")) {
         fontStyle = GoogleFonts.merriweather();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "montserrat") {
+      } else if (fontName.startsWith("montserrat")) {
         fontStyle = GoogleFonts.montserrat();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "mukta") {
+      } else if (fontName.startsWith("mukta")) {
         fontStyle = GoogleFonts.mukta();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "nunito") {
+      } else if (fontName.startsWith("nunito")) {
         fontStyle = GoogleFonts.nunito();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "offside") {
+      } else if (fontName.startsWith("offside")) {
         fontStyle = GoogleFonts.offside();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "opensans") {
+      } else if (fontName.startsWith("opensans")) {
         fontStyle = GoogleFonts.openSans();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "oswald") {
+      } else if (fontName.startsWith("oswald")) {
         fontStyle = GoogleFonts.oswald();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "overlock") {
+      } else if (fontName.startsWith("overlock")) {
         fontStyle = GoogleFonts.overlock();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "pacifico") {
+      } else if (fontName.startsWith("pacifico")) {
         fontStyle = GoogleFonts.pacifico();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "playfairdisplay") {
+      } else if (fontName.startsWith("playfairdisplay")) {
         fontStyle = GoogleFonts.playfairDisplay();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "poppins") {
+      } else if (fontName.startsWith("poppins")) {
         fontStyle = GoogleFonts.poppins();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "raleway") {
+      } else if (fontName.startsWith("raleway")) {
         fontStyle = GoogleFonts.raleway();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "roboto") {
+      } else if (fontName.startsWith("roboto")) {
         fontStyle = GoogleFonts.roboto();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "robotomono") {
+      } else if (fontName.startsWith("robotomono")) {
         fontStyle = GoogleFonts.robotoMono();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "sourcesanspro") {
+      } else if (fontName.startsWith("sourcesanspro")) {
         fontStyle = GoogleFonts.sourceSans3();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "spacemono") {
+      } else if (fontName.startsWith("spacemono")) {
         fontStyle = GoogleFonts.spaceMono();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "spicyrice") {
+      } else if (fontName.startsWith("spicyrice")) {
         fontStyle = GoogleFonts.spicyRice();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "squadaone") {
+      } else if (fontName.startsWith("squadaone")) {
         fontStyle = GoogleFonts.squadaOne();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "sueellenfrancisco") {
+      } else if (fontName.startsWith("sueellenfrancisco")) {
         fontStyle = GoogleFonts.sueEllenFrancisco();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "tradewinds") {
+      } else if (fontName.startsWith("tradewinds")) {
         fontStyle = GoogleFonts.tradeWinds();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "ubuntu") {
+      } else if (fontName.startsWith("ubuntu")) {
         fontStyle = GoogleFonts.ubuntu();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "varela") {
+      } else if (fontName.startsWith("varela")) {
         fontStyle = GoogleFonts.varela();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "vollkorn") {
+      } else if (fontName.startsWith("vollkorn")) {
         fontStyle = GoogleFonts.vollkorn();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "worksans") {
+      } else if (fontName.startsWith("worksans")) {
         fontStyle = GoogleFonts.workSans();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "zillaslab") {
+      } else if (fontName.startsWith("zillaslab")) {
         fontStyle = GoogleFonts.zillaSlab();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "mplusrounded1c") {
+      } else if (fontName.startsWith("mplusrounded1c")) {
         fontStyle = GoogleFonts.mPlusRounded1c();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "almarai") {
+      } else if (fontName.startsWith("almarai")) {
         fontStyle = GoogleFonts.almarai();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "tajawal") {
+      } else if (fontName.startsWith("tajawal")) {
         fontStyle = GoogleFonts.tajawal();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "oleoscript") {
+      } else if (fontName.startsWith("oleoscript")) {
         fontStyle = GoogleFonts.oleoScript();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "viga") {
+      } else if (fontName.startsWith("viga")) {
         fontStyle = GoogleFonts.viga();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "homemadeapple") {
+      } else if (fontName.startsWith("homemadeapple")) {
         fontStyle = GoogleFonts.homemadeApple();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "fredoka") {
+      } else if (fontName.startsWith("fredoka")) {
         fontStyle = GoogleFonts.fredoka();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "oleoscriptswashcaps") {
+      } else if (fontName.startsWith("oleoscriptswashcaps")) {
         fontStyle = GoogleFonts.oleoScriptSwashCaps();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "magra") {
+      } else if (fontName.startsWith("magra")) {
         fontStyle = GoogleFonts.magra();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "kaiseidecol") {
+      } else if (fontName.startsWith("kaiseidecol")) {
         fontStyle = GoogleFonts.kaiseiDecol();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "dotgothic16") {
+      } else if (fontName.startsWith("dotgothic16")) {
         fontStyle = GoogleFonts.dotGothic16();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "fresca") {
+      } else if (fontName.startsWith("fresca")) {
         fontStyle = GoogleFonts.fresca();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "pottaone") {
+      } else if (fontName.startsWith("pottaone")) {
         fontStyle = GoogleFonts.pottaOne();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "mochiypopone") {
+      } else if (fontName.startsWith("mochiypopone")) {
         fontStyle = GoogleFonts.mochiyPopOne();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "cherrycreamsoda") {
+      } else if (fontName.startsWith("cherrycreamsoda")) {
         fontStyle = GoogleFonts.cherryCreamSoda();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "cutefont") {
+      } else if (fontName.startsWith("cutefont")) {
         fontStyle = GoogleFonts.cuteFont();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') ==
-          "shipporiantique") {
+      } else if (fontName.startsWith("shipporiantique")) {
         fontStyle = GoogleFonts.shipporiAntique();
-      } else if (fontName.toLowerCase().replaceAll(' ', '') == "trainone") {
+      } else if (fontName.startsWith("trainone")) {
         fontStyle = GoogleFonts.trainOne();
       } else {
         fontStyle = GoogleFonts.roboto();
