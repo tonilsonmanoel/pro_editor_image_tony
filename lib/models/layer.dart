@@ -50,7 +50,7 @@ class Layer {
     Map map,
     List<Uint8List> stickers,
   ) {
-    TextStyle getTextStyleGoogle(String fontName) {
+    TextStyle? getTextStyleGoogle(String fontName) {
       TextStyle? fontStyle;
 
       if (fontName.startsWith("abrilfatface")) {
@@ -214,7 +214,9 @@ class Layer {
         String fontName =
             map['fontStyle'].toString().replaceAll(" ", "").toLowerCase();
 
-        TextStyle fontStyleMap = getTextStyleGoogle(fontName);
+        TextStyle fontStyleMap = GoogleFonts.roboto();
+
+        fontStyleMap = getTextStyleGoogle(fontName)!;
 
         return TextLayerData(
           flipX: layer.flipX,
@@ -344,7 +346,7 @@ class TextLayerData extends Layer {
 
   /// A custom text style for the text. Be careful the editor allow not to import
   /// and export this style.
-  TextStyle? fontStyle = GoogleFonts.roboto();
+  TextStyle fontStyle = GoogleFonts.roboto();
 
   /// Creates a new text layer with customizable properties.
   ///
@@ -384,7 +386,7 @@ class TextLayerData extends Layer {
       'colorPickerPosition': colorPickerPosition ?? 0,
       'align': align.name,
       'fontScale': fontScale,
-      'fontStyle': fontStyle!.fontFamily!,
+      'fontStyle': fontStyle.fontFamily!,
       'type': 'text',
     };
   }
